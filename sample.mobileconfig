@@ -22,6 +22,18 @@
 								<string>OneDrive - Companyname</string>
 								<key>TenantID</key>
 								<string>12345678-1234-1234-1234-1234567891011</string>
+								<key>syncDesktopFolder</key>
+								<true/>
+								<key>syncDocumentsFolder</key>
+								<true/>
+								<key>syncPicturesFolder</key>
+								<true/>
+								<key>SyncMoviesFolder</key>
+								<false/>
+								<key>SyncMusicFolder</key>
+								<false/>
+								<key>SyncDownloadsFolder</key>
+								<false/>
 							</dict>
 						</dict>
 					</array>

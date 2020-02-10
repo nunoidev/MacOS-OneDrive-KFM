@@ -27,7 +27,19 @@ You can choose to either download a release pkg or build your own. These steps a
 
  `sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" TenantID "12345678-1234-1234-1234-1234567891011"` 
 
- `sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" OneDriveFolderName "OneDrive - Companyname"` 
+ `sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" OneDriveFolderName "OneDrive - Companyname"`
+ 
+`sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" syncDesktopFolder -bool True`
+  
+`sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" syncDocumentsFolder -bool True`
+   
+`sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" syncPicturesFolder -bool True`
+    
+`sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" syncMoviesFolder -bool True`
+     
+`sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" syncMusicFolder  -bool True`
+
+`sudo defaults write "/Library/Preferences/com.cambridgeconsultants.onedrive-kfm" syncDownloadsFolder -bool True`
 
 Here is what each setting does:
 
@@ -38,6 +50,18 @@ Here is what each setting does:
 -  **OneDriveFolderName**  *(required)* : This is the default name of your OneDrive sync folder. This will be something like *"OneDrive - Company Name"*. This is the directory that OneDrive creates in your home directory for syncing.
 
 -  **FixBadFileNames**  *(optional)* : If this is set to True, then an attempt is made after setting up KFM to fix file names that are not valid with OneDrive. A report is saved on the desktop letting the user know what was changed. If this is set to False or not set, then no attempt will be made to rename files.
+
+-  **syncDesktopFolder**  *(optional)* : If this is set to True, then OneDrive-KFM will configure Desktop folder to sync to OneDrive.
+
+-  **syncDocumentsFolder**  *(optional)* : If this is set to True, then OneDrive-KFM will configure Documents folder to sync to OneDrive.
+
+-  **syncPicturesFolder**  *(optional)* : If this is set to True, then OneDrive-KFM will configure Pictures folder to sync to OneDrive.
+
+-  **syncMoviesFolder**  *(optional)* : If this is set to True, then OneDrive-KFM will configure Movies folder to sync to OneDrive.
+
+-  **syncMusicFolder**  *(optional)* : If this is set to True, then OneDrive-KFM will configure Music folder to sync to OneDrive.
+
+-  **syncDownloadsFolder**  *(optional)* : If this is set to True, then OneDrive-KFM will configure Downloads folder to sync to OneDrive.
 
 3. Install [OutSet](https://github.com/chilcote/outset). OutSet is used to run logon/startup scripts on MacOS. This is a dependency of this application.
 

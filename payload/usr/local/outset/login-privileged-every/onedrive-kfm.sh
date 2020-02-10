@@ -78,7 +78,7 @@ for user in $userList; do
             #Close OneDrive if it is running and the user is the console user
             if [ "$(stat -f "%Su" /dev/console)" == "$user" ]; then
                 logger -s -p user.notice "OneDrive-KFM: Closing OneDrive."
-                osascript -e 'display notification "Configuring OneDrive sync for Documents and Desktop..." with title "OneDrive Sync"'
+                osascript -e 'display notification "Configuring OneDrive KFM sync..." with title "OneDrive Sync"'
                 osascript -e 'quit app "OneDrive.app"'
             fi
 
@@ -86,7 +86,7 @@ for user in $userList; do
             logger -s -p user.notice "OneDrive-KFM: creating backup path: $backupPath"
             mkdir -p "$backupPath"
 
-            if [ "$syncDesktopFolder" == "True" ]; then
+            if [ "$syncDesktopFolder" -eq "True" ]; then
                 if [ -d "$userHomeDirectory/Documents" ] && [ ! -L "$userHomeDirectory/Documents" ]; then
                     logger -s -p user.notice "OneDrive-KFM: Moving documents folder for $user."
                     mv -f "$userHomeDirectory/Documents" "$backupPath/Documents"
@@ -100,7 +100,7 @@ for user in $userList; do
                 fi
             fi
 
-            if [ "$syncDocumentsFolder" == "True" ]; then
+            if [ "$syncDocumentsFolder" -eq "True" ]; then
                 if [ -d "$userHomeDirectory/Desktop" ] && [ ! -L "$userHomeDirectory/Desktop" ]; then
                     logger -s -p user.notice "OneDrive-KFM: Moving desktop folder for $user."
                     mv -f "$userHomeDirectory/Desktop" "$backupPath/Desktop"
@@ -114,7 +114,7 @@ for user in $userList; do
                 fi
             fi
             
-            if [ "$syncPicturesFolder" == "True" ]; then
+            if [ "$syncPicturesFolder" -eq "True" ]; then
                 if [ -d "$userHomeDirectory/Pictures" ] && [ ! -L "$userHomeDirectory/Pictures" ]; then
                     logger -s -p user.notice "OneDrive-KFM: Moving Pictures folder for $user."
                     mv -f "$userHomeDirectory/Pictures" "$backupPath/Pictures"
@@ -128,7 +128,7 @@ for user in $userList; do
                 fi  
             fi
             
-            if [ "$syncMoviesFolder" == "True" ]; then
+            if [ "$syncMoviesFolder" -eq "True" ]; then
                 if [ -d "$userHomeDirectory/Movies" ] && [ ! -L "$userHomeDirectory/Movies" ]; then
                     logger -s -p user.notice "OneDrive-KFM: Moving Movies folder for $user."
                     mv -f "$userHomeDirectory/Movies" "$backupPath/Movies"
@@ -142,7 +142,7 @@ for user in $userList; do
                 fi  
             fi
             
-            if [ "$syncMusicFolder" == "True" ]; then
+            if [ "$syncMusicFolder" -eq "True" ]; then
                 if [ -d "$userHomeDirectory/Music" ] && [ ! -L "$userHomeDirectory/Music" ]; then
                     logger -s -p user.notice "OneDrive-KFM: Moving Music folder for $user."
                     mv -f "$userHomeDirectory/Music" "$backupPath/Music"
@@ -156,7 +156,7 @@ for user in $userList; do
                 fi  
             fi
             
-             if [ "$syncDownloadsFolder" == "True" ]; then
+            if [ "$syncDownloadsFolder" -eq "True" ]; then
                 if [ -d "$userHomeDirectory/Downloads" ] && [ ! -L "$userHomeDirectory/Downloads" ]; then
                     logger -s -p user.notice "OneDrive-KFM: Moving Downloads folder for $user."
                     mv -f "$userHomeDirectory/Downloads" "$backupPath/Downloads"
